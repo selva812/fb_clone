@@ -1,11 +1,12 @@
-import 'package:fb_clone/core/constants/constants.dart';
-import 'package:fb_clone/core/screens/homescreen.dart';
-import 'package:fb_clone/core/utils/utils.dart';
-import 'package:fb_clone/core/widget/round_button.dart';
-import 'package:fb_clone/features/auth/providers/auth_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '/core/constants/constants.dart';
+import '/core/screens/home_screen.dart';
+import '/core/utils/utils.dart';
+import '/core/widgets/round_button.dart';
+import '/features/auth/providers/auth_provider.dart';
 
 class VerifyEmailScreen extends ConsumerWidget {
   const VerifyEmailScreen({super.key});
@@ -23,15 +24,13 @@ class VerifyEmailScreen extends ConsumerWidget {
                 await ref.read(authProvider).verifyEmail().then((value) {
                   if (value == null) {
                     showToastMessage(
-                        text: "Email verification send to your email");
+                        text: 'Email verification sent to your email');
                   }
                 });
               },
-              label: "Verify Email",
+              label: 'Verify Email',
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             RoundButton(
               onPressed: () async {
                 await FirebaseAuth.instance.currentUser!.reload();
@@ -42,16 +41,14 @@ class VerifyEmailScreen extends ConsumerWidget {
                   Navigator.of(context).pushNamed(HomeScreen.routeName);
                 }
               },
-              label: "Refresh",
+              label: 'Refresh',
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             RoundButton(
               onPressed: () {
                 ref.read(authProvider).signOut();
               },
-              label: "Change Email",
+              label: 'Change Email',
             ),
           ],
         ),

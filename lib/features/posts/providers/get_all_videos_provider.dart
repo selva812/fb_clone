@@ -1,16 +1,18 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fb_clone/core/constants/firebase_collection_name.dart';
-import 'package:fb_clone/core/constants/firebase_field_name.dart';
-import 'package:fb_clone/features/post/model/post_model.dart';
+import 'package:fb_clone/core/constants/firebaes_collection_names.dart';
+import 'package:fb_clone/core/constants/firebase_field_names.dart';
+import 'package:fb_clone/features/posts/models/post.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final getAllPostsProvider = StreamProvider((ref) {
+final getAllVideosProvider = StreamProvider.autoDispose<Iterable<Post>>((ref) {
   final controller = StreamController<Iterable<Post>>();
+
   final sub = FirebaseFirestore.instance
       .collection(FirebaseCollectionNames.posts)
-      .orderBy(FirebaseFieldNames.createdAt, descending: true)
+      .where(FirebaseFieldNames.postType, isEqualTo: 'video')
+      .orderBy(FirebaseFieldNames.datePublished, descending: true)
       .snapshots()
       .listen((snapshot) {
     final posts = snapshot.docs.map(

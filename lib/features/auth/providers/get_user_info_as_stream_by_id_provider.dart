@@ -1,20 +1,19 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fb_clone/core/constants/firebaes_collection_names.dart';
-import 'package:fb_clone/core/constants/firebase_field_names.dart';
-import 'package:fb_clone/features/auth/models/user.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final getUserInfoAsStreamProvider =
-    StreamProvider.autoDispose<UserModel>((ref) {
+import '/core/constants/firebaes_collection_names.dart';
+import '/core/constants/firebase_field_names.dart';
+import '/features/auth/models/user.dart';
+
+final getUserInfoAsStreamByIdProvider =
+    StreamProvider.autoDispose.family<UserModel, String>((ref, String userId) {
   final controller = StreamController<UserModel>();
 
   final sub = FirebaseFirestore.instance
       .collection(FirebaseCollectionNames.users)
-      .where(FirebaseFieldNames.uid,
-          isEqualTo: FirebaseAuth.instance.currentUser!.uid)
+      .where(FirebaseFieldNames.uid, isEqualTo: userId)
       .limit(1)
       .snapshots()
       .listen((snapshot) {

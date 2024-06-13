@@ -1,9 +1,7 @@
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fb_clone/core/constants/firebase_collection_name.dart';
-//import 'package:fb_clone/core/constants/firebaes_collection_names.dart';
-import 'package:fb_clone/core/constants/storage_folder_name.dart';
+import 'package:fb_clone/core/constants/firebaes_collection_names.dart';
+import 'package:fb_clone/core/constants/storage_folder_names.dart';
 import 'package:fb_clone/core/utils/utils.dart';
 import 'package:fb_clone/features/auth/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -99,7 +97,7 @@ class AuthRepository {
     }
   }
 
-  // // Verify Email
+  // Verify Email
   Future<String?> verifyEmail() async {
     final user = FirebaseAuth.instance.currentUser;
     try {
@@ -113,7 +111,7 @@ class AuthRepository {
     }
   }
 
-  // // get user info
+  // get user info
   Future<UserModel> getUserInfo() async {
     final userData = await _firestore
         .collection(FirebaseCollectionNames.users)

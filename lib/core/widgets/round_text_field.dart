@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class RoundTextField extends StatelessWidget {
   const RoundTextField({
-    super.key,
+    Key? key,
     required this.controller,
     required this.hintText,
     required this.textInputAction,
     this.isPassword = false,
     this.keyboardType = TextInputType.text,
     this.validator,
-  });
+  }) : super(key: key);
 
   final TextEditingController controller;
   final String hintText;

@@ -1,7 +1,5 @@
-import 'dart:convert';
-
-import 'package:fb_clone/core/constants/firebase_field_name.dart';
-import 'package:flutter/foundation.dart';
+import 'package:fb_clone/core/constants/firebase_field_names.dart';
+import 'package:flutter/foundation.dart' show immutable;
 
 @immutable
 class Post {

@@ -1,11 +1,10 @@
 import 'dart:io';
-
 import 'package:fb_clone/core/constants/app_colors.dart';
 import 'package:fb_clone/core/constants/constants.dart';
 import 'package:fb_clone/core/utils/utils.dart';
-import 'package:fb_clone/core/widget/pick_image_widget.dart';
-import 'package:fb_clone/core/widget/round_button.dart';
-import 'package:fb_clone/core/widget/roundtextfield.dart';
+import 'package:fb_clone/core/widgets/pick_image_widget.dart';
+import 'package:fb_clone/core/widgets/round_text_field.dart';
+import 'package:fb_clone/core/widgets/round_button.dart';
 import 'package:fb_clone/features/auth/presentation/widget/birthday_picker.dart';
 import 'package:fb_clone/features/auth/presentation/widget/gender_picker.dart';
 import 'package:fb_clone/features/auth/providers/auth_provider.dart';

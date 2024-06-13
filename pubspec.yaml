@@ -33,6 +33,7 @@ dependencies:
   uuid: ^4.4.0
   riverpod: ^2.5.1
   flutter_riverpod: ^2.5.1
+  video_player: ^2.8.7
 
 dev_dependencies:
   flutter_test:

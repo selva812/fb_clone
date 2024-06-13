@@ -1,4 +1,4 @@
-import 'package:fb_clone/core/constants/firebase_field_name.dart';
+import 'package:fb_clone/core/constants/firebase_field_names.dart';
 import 'package:flutter/foundation.dart' show immutable;
 
 @immutable
@@ -28,7 +28,7 @@ class UserModel {
   });
 
   Map<String, dynamic> toMap() {
-    return {
+    return <String, dynamic>{
       FirebaseFieldNames.fullName: fullName,
       FirebaseFieldNames.birthDay: birthDay.millisecondsSinceEpoch,
       FirebaseFieldNames.gender: gender,
@@ -44,19 +44,19 @@ class UserModel {
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
-      fullName: map[FirebaseFieldNames.fullName] ?? '',
-      birthDay:
-          DateTime.fromMillisecondsSinceEpoch(map[FirebaseFieldNames.birthDay]),
-      gender: map[FirebaseFieldNames.gender] ?? '',
-      email: map[FirebaseFieldNames.email] ?? '',
-      password: map[FirebaseFieldNames.password] ?? '',
-      profilePicUrl: map[FirebaseFieldNames.profilePicUrl] ?? '',
-      uid: map[FirebaseFieldNames.uid] ?? '',
-      friends: List<String>.from(map[FirebaseFieldNames.friends] ?? []),
+      fullName: map[FirebaseFieldNames.fullName] as String,
+      birthDay: DateTime.fromMillisecondsSinceEpoch(
+          map[FirebaseFieldNames.birthDay] as int),
+      gender: map[FirebaseFieldNames.gender] as String,
+      email: map[FirebaseFieldNames.email] as String,
+      password: map[FirebaseFieldNames.password] as String,
+      profilePicUrl: map[FirebaseFieldNames.profilePicUrl] as String,
+      uid: map[FirebaseFieldNames.uid] as String,
+      friends: List<String>.from((map[FirebaseFieldNames.friends] ?? [])),
       sentRequests:
-          List<String>.from(map[FirebaseFieldNames.sentRequests] ?? []),
+          List<String>.from((map[FirebaseFieldNames.sentRequests] ?? [])),
       receivedRequests:
-          List<String>.from(map[FirebaseFieldNames.receivedRequests] ?? []),
+          List<String>.from((map[FirebaseFieldNames.receivedRequests] ?? [])),
     );
   }
 }

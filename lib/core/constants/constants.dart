@@ -1,4 +1,5 @@
 import 'package:fb_clone/core/screens/profile_screen.dart';
+import 'package:fb_clone/features/friends/presentation/screens/friends_screen.dart';
 import 'package:fb_clone/features/posts/presentation/screens/posts_screen.dart';
 import 'package:fb_clone/features/posts/presentation/screens/videos_screen.dart';
 import 'package:flutter/material.dart';
@@ -54,9 +55,7 @@ class Constants {
 
   static const List<Widget> screens = [
     PostsScreen(),
-    Center(
-      child: Text('Friends'),
-    ),
+    FriendsScreen(),
     VideosScreen(),
     ProfileScreen(),
     Center(

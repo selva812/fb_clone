@@ -36,7 +36,7 @@ class PostInfoTile extends ConsumerWidget {
                   );
                 },
                 child: CircleAvatar(
-                  backgroundImage: NetworkImage(user!.profilePicUrl),
+                  backgroundImage: NetworkImage(user.profilePicUrl),
                 ),
               ),
               const SizedBox(width: 10),

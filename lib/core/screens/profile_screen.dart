@@ -1,7 +1,7 @@
+import 'package:fb_clone/features/friends/presentation/widgets/add_friend_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '/core/constants/app_colors.dart';
 import '/core/constants/constants.dart';
 import '/core/constants/extensions.dart';
@@ -54,11 +54,11 @@ class ProfileScreen extends ConsumerWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  // userId == myUid
-                  //     ? _buildAddToStoryButton()
-                  //     : AddFriendButton(
-                  //         user: user,
-                  //       ),
+                  userId == myUid
+                      ? _buildAddToStoryButton()
+                      : AddFriendButton(
+                          user: user,
+                        ),
                   const SizedBox(height: 10),
                   RoundButton(
                     onPressed: () {

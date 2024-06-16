@@ -1,6 +1,7 @@
 import 'package:fb_clone/core/constants/app_colors.dart';
 import 'package:fb_clone/core/constants/constants.dart';
 import 'package:fb_clone/core/widgets/round_icon_button.dart';
+import 'package:fb_clone/features/chat/presentation/screens/chats_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -73,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   Widget _buildMessengerWidget() => InkWell(
         onTap: () {
-          // Navigator.of(context).pushNamed(ChatsScreen.routeName);
+          Navigator.of(context).pushNamed(ChatsScreen.routeName);
         },
         child: const RoundIconButton(
           icon: FontAwesomeIcons.facebookMessenger,
